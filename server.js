@@ -6,6 +6,8 @@ const middlewares = jsonServer.defaults();
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 server.use('/posts', router); // optional: add custom routes here
-server.listen(process.env.PORT || 8080, () => {
-  console.log('JSON Server is running');
+
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`JSON Server is running on port ${PORT}`);
 });
